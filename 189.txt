@@ -1,0 +1,25 @@
+# Problem Description:
+The code rotates an array `nums` to the right by `k` steps. The rotation is performed in-place.
+
+# Algorithm:
+1. Calculate the effective rotation `k` as `k % n` to handle cases where `k` is greater than the array size.
+2. Reverse the first `n-k` elements of the array.
+3. Reverse the last `k` elements of the array.
+4. Reverse the entire array to achieve the desired rotation.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because each reversal operation takes O(n) and there are three reversals.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it modifies the array in-place.
+
+# Edge Cases:
+1. If `k` is 0 or a multiple of the array size, the array remains unchanged.
+2. If the array is empty or has only one element, no rotation is needed.
+
+# Example:
+Input: nums = [1, 2, 3, 4, 5, 6, 7], k = 3
+Output: [5, 6, 7, 1, 2, 3, 4]
+
+Input: nums = [-1, -100, 3, 99], k = 2
+Output: [3, 99, -1, -100]
