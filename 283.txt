@@ -1,0 +1,26 @@
+# Problem Description:
+The code moves all zeroes in the array `nums` to the end while maintaining the relative order of the non-zero elements. The operation is performed in-place.
+
+# Algorithm:
+1. Find the first occurrence of a zero in the array and store its index.
+2. Iterate through the array starting from the next element:
+   - If a non-zero element is found, swap it with the element at the stored index and increment the index.
+3. Continue until all non-zero elements are moved to the front, and all zeroes are moved to the end.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it modifies the array in-place.
+
+# Edge Cases:
+1. An empty array or an array with a single element remains unchanged.
+2. An array with no zeroes remains unchanged.
+3. An array with all zeroes remains unchanged.
+
+# Example:
+Input: nums = [0, 1, 0, 3, 12]
+Output: [1, 3, 12, 0, 0]
+
+Input: nums = [0, 0, 1]
+Output: [1, 0, 0]
