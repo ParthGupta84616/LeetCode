@@ -1,0 +1,26 @@
+# Problem Description:
+The code removes duplicates from a sorted array `nums` in-place such that each element appears only once. It returns the new length of the array after removing duplicates.
+
+# Algorithm:
+1. Initialize an `index` variable to 1, which keeps track of the position to place the next unique element.
+2. Iterate through the array starting from the second element:
+   - If the current element is equal to the previous element, skip it.
+   - Otherwise, place the current element at the `index` position and increment `index`.
+3. After the loop, `index` will represent the length of the array with unique elements.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it modifies the array in-place.
+
+# Edge Cases:
+1. An empty array will return a length of 0.
+2. An array with all unique elements will remain unchanged.
+
+# Example:
+Input: nums = [1, 1, 2]
+Output: 2 (nums = [1, 2, _])
+
+Input: nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+Output: 5 (nums = [0, 1, 2, 3, 4, _, _, _, _, _])
