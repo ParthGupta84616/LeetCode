@@ -1,0 +1,29 @@
+# Problem Description:
+The code finds all unique quadruplets in the array `nums` that sum up to the given target. Each quadruplet must be sorted in ascending order, and the solution set must not contain duplicate quadruplets.
+
+# Algorithm:
+1. Use the `fourSum` function to sort the array and call the helper function `kSum` with `k = 4`.
+2. The `kSum` function:
+   - Handles the general case for finding `k` numbers that sum to the target.
+   - Recursively reduces the problem to smaller subsets until `k == 2`, where it calls `twoSum`.
+3. The `twoSum` function:
+   - Uses a hash set to find pairs of numbers that sum to the target, avoiding duplicates.
+4. Combine results from recursive calls and return the final list of quadruplets.
+
+# Time Complexity:
+- The algorithm runs in O(n^(k-1)), where `n` is the size of the array and `k` is the number of elements in the subset (in this case, `k = 4`).
+
+# Space Complexity:
+- The algorithm uses O(k) additional space for recursion and O(n) for the hash set in `twoSum`.
+
+# Edge Cases:
+1. If the array has fewer than 4 elements, the result is an empty vector.
+2. If no quadruplets sum to the target, the result is an empty vector.
+3. If all elements are the same and their sum equals the target, the result contains one quadruplet.
+
+# Example:
+Input: nums = [1, 0, -1, 0, -2, 2], target = 0  
+Output: [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]  
+
+Input: nums = [2, 2, 2, 2, 2], target = 8  
+Output: [[2, 2, 2, 2]]
