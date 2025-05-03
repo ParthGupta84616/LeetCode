@@ -1,0 +1,33 @@
+# Problem Description:
+The code finds all unique triplets in the array `nums` that sum up to `0`. Each triplet must be sorted in ascending order, and the solution set must not contain duplicate triplets.
+
+# Algorithm:
+1. Sort the array `nums` in ascending order.
+2. Iterate through the array with index `i`:
+   - Skip duplicate elements to avoid duplicate triplets.
+   - Use two pointers `j` (starting from `i + 1`) and `k` (starting from the end of the array) to find pairs that sum up to `-nums[i]`.
+   - If the sum of `nums[i]`, `nums[j]`, and `nums[k]` is `0`, add the triplet to the result and adjust the pointers to skip duplicates.
+   - If the sum is greater than `0`, decrement `k`.
+   - If the sum is less than `0`, increment `j`.
+3. Return the result vector containing all unique triplets.
+
+# Time Complexity:
+- The algorithm runs in O(n^2), where `n` is the size of the array. Sorting the array takes O(n log n), and the two-pointer approach takes O(n) for each element.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space, excluding the space required for the output vector.
+
+# Edge Cases:
+1. If the array has fewer than 3 elements, the result is an empty vector.
+2. If no triplets sum to `0`, the result is an empty vector.
+3. If all elements are `0`, the result is a single triplet `[0, 0, 0]`.
+
+# Example:
+Input: nums = [-1, 0, 1, 2, -1, -4]  
+Output: [[-1, -1, 2], [-1, 0, 1]]  
+
+Input: nums = [0, 1, 1]  
+Output: []  
+
+Input: nums = [0, 0, 0]  
+Output: [[0, 0, 0]]
