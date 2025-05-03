@@ -1,0 +1,26 @@
+# Problem Description:
+The code rotates a given `n x n` 2D matrix by 90 degrees clockwise in-place.
+
+# Algorithm:
+1. Transpose the matrix:
+   - Swap elements `matrix[i][j]` and `matrix[j][i]` for all `i < j`.
+2. Reverse each row of the matrix:
+   - For each row, reverse the order of its elements.
+3. The matrix is now rotated 90 degrees clockwise.
+
+# Time Complexity:
+- The algorithm runs in O(n^2), where `n` is the number of rows (or columns) in the matrix. This is because it processes each element of the matrix once during the transpose and reverse operations.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it modifies the matrix in-place.
+
+# Edge Cases:
+1. A `1 x 1` matrix remains unchanged.
+2. A matrix with all identical elements remains unchanged after rotation.
+
+# Example:
+Input: matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  
+Output: [[7, 4, 1], [8, 5, 2], [9, 6, 3]]  
+
+Input: matrix = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]  
+Output: [[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]
