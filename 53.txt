@@ -1,0 +1,33 @@
+# Problem Description:
+The code finds the contiguous subarray (containing at least one number) within an array `nums` that has the largest sum and returns that sum.
+
+# Algorithm:
+1. Use Kadane's Algorithm to find the maximum subarray sum:
+   - Initialize `sum` to `0` and `max` to the smallest possible integer value.
+   - Iterate through the array:
+     - Add the current element to `sum`.
+     - Update `max` if `sum` is greater than `max`.
+     - Reset `sum` to `0` if it becomes negative, as a negative sum will not contribute to the maximum subarray.
+2. Return `max` as the result.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a few integer variables for computation.
+
+# Edge Cases:
+1. An array with a single element will return that element.
+2. An array with all negative numbers will return the largest single element.
+3. An array with all positive numbers will return the sum of the entire array.
+
+# Example:
+Input: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]  
+Output: 6  
+Explanation: The subarray [4, -1, 2, 1] has the largest sum = 6.
+
+Input: nums = [1]  
+Output: 1  
+
+Input: nums = [5, 4, -1, 7, 8]  
+Output: 23
