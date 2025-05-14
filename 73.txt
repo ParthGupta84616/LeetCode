@@ -1,0 +1,27 @@
+# Problem Description:
+The code modifies a given `m x n` matrix such that if an element is `0`, its entire row and column are set to `0`. The operation is performed in-place.
+
+# Algorithm:
+1. Use two auxiliary arrays `row` and `col` to track which rows and columns need to be set to `0`.
+2. Iterate through the matrix:
+   - If an element is `0`, mark its row and column in the `row` and `col` arrays.
+3. Iterate through the matrix again:
+   - If a row or column is marked in the auxiliary arrays, set the corresponding element in the matrix to `0`.
+
+# Time Complexity:
+- The algorithm runs in O(m * n), where `m` is the number of rows and `n` is the number of columns. This is because it iterates through the matrix twice.
+
+# Space Complexity:
+- The algorithm uses O(m + n) additional space for the `row` and `col` arrays.
+
+# Edge Cases:
+1. A matrix with no `0`s remains unchanged.
+2. A matrix where all elements are `0` will remain all `0`s.
+3. A single-row or single-column matrix is handled correctly.
+
+# Example:
+Input: matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]  
+Output: [[1, 0, 1], [0, 0, 0], [1, 0, 1]]  
+
+Input: matrix = [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]]  
+Output: [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]
