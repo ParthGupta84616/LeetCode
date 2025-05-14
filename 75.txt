@@ -1,0 +1,31 @@
+# Problem Description:
+The code sorts an array `nums` containing only the integers `0`, `1`, and `2` in-place such that elements of the same value are adjacent, with the order `0`, `1`, `2`.
+
+# Algorithm:
+1. Use three pointers: `low`, `mid`, and `high`.
+   - `low` tracks the position for the next `0`.
+   - `mid` is the current element being processed.
+   - `high` tracks the position for the next `2`.
+2. Iterate through the array:
+   - If the current element is `0`, swap it with the element at `low` and increment both `low` and `mid`.
+   - If the current element is `1`, simply increment `mid`.
+   - If the current element is `2`, swap it with the element at `high` and decrement `high`.
+3. Continue until `mid` exceeds `high`.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because each element is processed at most once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it modifies the array in-place.
+
+# Edge Cases:
+1. An empty array remains unchanged.
+2. An array with all elements the same remains unchanged.
+3. An already sorted array remains unchanged.
+
+# Example:
+Input: nums = [2, 0, 2, 1, 1, 0]  
+Output: [0, 0, 1, 1, 2, 2]
+
+Input: nums = [2, 0, 1]  
+Output: [0, 1, 2]
