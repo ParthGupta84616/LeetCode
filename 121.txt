@@ -1,0 +1,29 @@
+# Problem Description:
+The code finds the maximum profit that can be achieved from buying and selling a stock. The stock prices are given in an array `prices`, where `prices[i]` is the price of the stock on the `i`th day. You can only complete one transaction (buy one and sell one share of the stock).
+
+# Algorithm:
+1. Initialize `mini` to the price on the first day and `maxProfit` to `0`.
+2. Iterate through the array starting from the second day:
+   - Calculate the potential profit (`cost`) by subtracting `mini` from the current price.
+   - Update `maxProfit` if `cost` is greater than the current `maxProfit`.
+   - Update `mini` to the minimum of the current price and `mini`.
+3. Return `maxProfit`.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a few integer variables for computation.
+
+# Edge Cases:
+1. An array with a single price will return `0` as no transaction can be made.
+2. An array where prices are in descending order will return `0` as no profit can be made.
+
+# Example:
+Input: prices = [7, 1, 5, 3, 6, 4]  
+Output: 5  
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6 - 1 = 5.
+
+Input: prices = [7, 6, 4, 3, 1]  
+Output: 0  
+Explanation: No transaction is done, so the maximum profit is 0.
