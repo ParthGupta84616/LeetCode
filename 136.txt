@@ -1,0 +1,26 @@
+# Problem Description:
+The code finds the single number in an array `nums` where every element appears twice except for one. The single number is guaranteed to appear only once.
+
+# Algorithm:
+1. Initialize a variable `xorr` to `0`.
+2. Iterate through the array:
+   - Perform a bitwise XOR operation between `xorr` and the current element.
+   - The XOR operation cancels out numbers that appear twice, leaving only the single number.
+3. Return `xorr` as the single number.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a single integer variable for computation.
+
+# Edge Cases:
+1. An array with only one element will return that element.
+2. An array where all elements except one appear exactly twice.
+
+# Example:
+Input: nums = [2, 2, 1]
+Output: 1
+
+Input: nums = [4, 1, 2, 1, 2]
+Output: 4
