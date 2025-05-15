@@ -1,0 +1,33 @@
+# Problem Description:
+The code finds the contiguous subarray within an array `nums` that has the largest product and returns that product.
+
+# Algorithm:
+1. Initialize `max_so_far`, `current_max_product`, and `current_min_product` to the first element of the array.
+2. Iterate through the array starting from the second element:
+   - Calculate the new `current_max_product` as the maximum of:
+     - The current number.
+     - The product of the current number and the previous `current_max_product`.
+     - The product of the current number and the previous `current_min_product`.
+   - Similarly, calculate the new `current_min_product` as the minimum of the same three values.
+   - Update `max_so_far` to the maximum of `max_so_far` and `current_max_product`.
+3. Return `max_so_far`.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a few integer variables for computation.
+
+# Edge Cases:
+1. If the array is empty, the result is `0`.
+2. If the array contains only one element, the result is that element.
+3. If the array contains negative numbers, the algorithm correctly handles the sign changes.
+
+# Example:
+Input: nums = [2, 3, -2, 4]  
+Output: 6  
+Explanation: The subarray [2, 3] has the largest product = 6.
+
+Input: nums = [-2, 0, -1]  
+Output: 0  
+Explanation: The result cannot be obtained from any subarray other than [0].
