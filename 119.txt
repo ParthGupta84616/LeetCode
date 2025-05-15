@@ -1,0 +1,25 @@
+# Problem Description:
+The code generates the `rowIndex`th row of Pascal's Triangle. Each row of Pascal's Triangle is constructed such that each element is the sum of the two elements directly above it in the previous row.
+
+# Algorithm:
+1. Use a helper function `generateRow` to generate a specific row of Pascal's Triangle:
+   - Start with the first element as `1`.
+   - Use the formula `ans = ans * (row - i) / i` to compute the next element iteratively.
+2. Use the `getRow` function to call `generateRow` with `rowIndex + 1` to generate the desired row.
+
+# Time Complexity:
+- The algorithm runs in O(rowIndex). Generating the row takes O(rowIndex) time.
+
+# Space Complexity:
+- The algorithm uses O(rowIndex) space to store the output row.
+
+# Edge Cases:
+1. If `rowIndex` is `0`, the output is `[1]`.
+2. If `rowIndex` is `1`, the output is `[1, 1]`.
+
+# Example:
+Input: rowIndex = 3  
+Output: [1, 3, 3, 1]  
+
+Input: rowIndex = 0  
+Output: [1]
