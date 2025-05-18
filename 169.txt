@@ -1,0 +1,28 @@
+# Problem Description:
+The code finds the majority element in an array `nums`. The majority element is the element that appears more than `n / 2` times, where `n` is the size of the array. It is guaranteed that a majority element always exists.
+
+# Algorithm:
+1. Use the Boyer-Moore Voting Algorithm to find a candidate for the majority element:
+   - Maintain a `counter` and a `candidate` element.
+   - Increment the counter if the current element matches the candidate.
+   - Decrement the counter if it does not match.
+   - Reset the candidate when the counter reaches `0`.
+2. Verify the candidate by counting its occurrences in the array.
+3. Return the candidate if it appears more than `n / 2` times; otherwise, return `-1`.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array twice: once to find the candidate and once to verify it.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a few integer variables for computation.
+
+# Edge Cases:
+1. An array with a single element will return that element.
+2. An array where all elements are the same will return that element.
+
+# Example:
+Input: nums = [3, 2, 3]  
+Output: 3  
+
+Input: nums = [2, 2, 1, 1, 1, 2, 2]  
+Output: 2
