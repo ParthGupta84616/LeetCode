@@ -1,0 +1,30 @@
+# Problem Description:
+The code finds the maximum number of consecutive `1`s in a binary array `nums`.
+
+# Algorithm:
+1. Initialize two variables:
+   - `bag` to store the maximum count of consecutive `1`s found so far.
+   - `newbag` to count the current streak of consecutive `1`s.
+2. Iterate through the array:
+   - If the current element is `0`, compare `newbag` with `bag` and update `bag` if necessary. Reset `newbag` to `0`.
+   - If the current element is `1`, increment `newbag`.
+3. After the loop, compare `newbag` with `bag` one last time to ensure the maximum streak is recorded.
+4. Return `bag`.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a few integer variables for computation.
+
+# Edge Cases:
+1. An empty array will return `0`.
+2. An array with no `1`s will return `0`.
+3. An array with all `1`s will return the size of the array.
+
+# Example:
+Input: nums = [1, 1, 0, 1, 1, 1]
+Output: 3
+
+Input: nums = [1, 0, 1, 1, 0, 1]
+Output: 2
