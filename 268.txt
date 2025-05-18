@@ -1,0 +1,32 @@
+# Problem Description:
+The code finds the missing number in an array `nums` containing `n` distinct numbers taken from the range `[0, n]`. The array may or may not include the number `0`.
+
+# Algorithm:
+1. Calculate the expected sum of the first `n` natural numbers using the formula `n * (n + 1) / 2`.
+2. Iterate through the array and subtract each element from the expected sum.
+3. Check if the number `0` is present in the array using a flag.
+4. Return:
+   - `0` if the flag indicates `0` is missing.
+   - `n + 1` if the sum becomes `0` after subtraction.
+   - The remaining sum as the missing number.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a few integer variables for computation.
+
+# Edge Cases:
+1. An empty array will return `0`.
+2. An array with all numbers from `0` to `n` will return `n + 1`.
+3. An array missing the number `0` will return `0`.
+
+# Example:
+Input: nums = [3, 0, 1]
+Output: 2
+
+Input: nums = [0, 1]
+Output: 2
+
+Input: nums = [9,6,4,2,3,5,7,0,1]
+Output: 8
