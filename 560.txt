@@ -1,0 +1,30 @@
+# Problem Description:
+The code counts the number of continuous subarrays in the array `nums` whose sum equals `k`.
+
+# Algorithm:
+1. Iterate through the array with an outer loop starting at each index `i`.
+2. Use an inner loop to calculate the sum of subarrays ending at index `i`:
+   - Initialize `total` to `0`.
+   - Add elements from the current index `j` to `i` in reverse order.
+   - If the sum equals `k`, increment the result `res`.
+3. Return `res` as the total count of subarrays with sum equal to `k`.
+
+# Time Complexity:
+- The algorithm runs in O(n^2), where `n` is the size of the array. This is because it uses nested loops to calculate subarray sums.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a few integer variables for computation.
+
+# Edge Cases:
+1. An empty array will return `0`.
+2. If no subarray sums to `k`, the result will be `0`.
+3. If all elements are `0` and `k` is `0`, the result will be the total number of subarrays.
+
+# Example:
+Input: nums = [1, 1, 1], k = 2  
+Output: 2  
+Explanation: The subarrays [1, 1] and [1, 1] sum to `2`.
+
+Input: nums = [1, 2, 3], k = 3  
+Output: 2  
+Explanation: The subarrays [1, 2] and [3] sum to `3`.
