@@ -1,0 +1,40 @@
+# Problem Description:
+The code simulates the effect of pushing dominoes represented as a string. Each domino can be in one of three states:
+- `'L'`: pushed to the left.
+- `'R'`: pushed to the right.
+- `'.'`: standing upright.
+
+The goal is to determine the final state of the dominoes after all forces have been applied.
+
+# Algorithm:
+1. Use two vectors:
+   - `indexes` to store the positions of non-dot characters (`'L'` or `'R'`).
+   - `symbols` to store the corresponding characters.
+2. Add virtual boundaries:
+   - A left boundary with `'L'` at index `-1`.
+   - A right boundary with `'R'` at index `N` (length of the string).
+3. Iterate through pairs of consecutive non-dot characters:
+   - If the characters are the same (`'L'` and `'L'` or `'R'` and `'R'`), fill the intermediate positions with the same character.
+   - If the characters are `'R'` and `'L'`, fill the intermediate positions with `'R'` and `'L'` symmetrically, leaving the middle position as `'.'` if the distance is odd.
+   - If the characters are `'L'` and `'R'`, leave the intermediate positions as `'.'`.
+4. Return the modified string.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the length of the string. This is because each character is processed once.
+
+# Space Complexity:
+- The algorithm uses O(n) additional space for the `indexes` and `symbols` vectors.
+
+# Edge Cases:
+1. If the string contains only `'.'`, the result is the same string.
+2. If the string contains only `'L'` or `'R'`, the result is the same string.
+3. If all dominoes are pushed in the same direction, the result is a string of `'L'` or `'R'`.
+
+# Example:
+Input: dominoes = "RR.L"  
+Output: "RR.L"  
+Explanation: The dominoes at positions 0 and 1 are pushed to the right, and the domino at position 3 is pushed to the left. No forces act on the domino at position 2.
+
+Input: dominoes = ".L.R...LR..L.."  
+Output: "LL.RR.LLRRLL.."  
+Explanation: The forces propagate symmetrically, and the final state is determined accordingly.
