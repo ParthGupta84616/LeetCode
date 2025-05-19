@@ -1,0 +1,29 @@
+# Problem Description:
+The code counts how many numbers in the array `nums` contain an even number of digits.
+
+# Algorithm:
+1. Initialize a counter `evenDigitCount` to `0`.
+2. Iterate through each number in the array:
+   - Convert the number to a string and calculate its length.
+   - If the length is even, increment `evenDigitCount`.
+3. Return `evenDigitCount` as the result.
+
+# Time Complexity:
+- The algorithm runs in O(n * d), where `n` is the size of the array and `d` is the average number of digits in the numbers. This is because converting a number to a string and calculating its length takes O(d) time.
+
+# Space Complexity:
+- The algorithm uses O(d) additional space for the string representation of each number.
+
+# Edge Cases:
+1. If the array is empty, the result is `0`.
+2. If all numbers have an odd number of digits, the result is `0`.
+3. If all numbers have an even number of digits, the result is the size of the array.
+
+# Example:
+Input: nums = [12, 345, 2, 6, 7896]  
+Output: 2  
+Explanation: 12 and 7896 have an even number of digits.
+
+Input: nums = [555, 901, 482, 1771]  
+Output: 1  
+Explanation: Only 1771 has an even number of digits.
