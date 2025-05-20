@@ -1,0 +1,34 @@
+# Problem Description:
+The code calculates the triangular sum of an array `nums`. The triangular sum is obtained by repeatedly replacing the array with a new array where each element is the sum of two consecutive elements modulo 10, until only one element remains.
+
+# Algorithm:
+1. Start with the given array `nums`.
+2. While the size of the array is greater than 1:
+   - Create a new array `res`.
+   - For each pair of consecutive elements in `nums`, calculate their sum modulo 10 and append it to `res`.
+   - Replace `nums` with `res`.
+   - Decrement the size `n`.
+3. Return the single remaining element in `nums`.
+
+# Time Complexity:
+- The algorithm runs in O(n^2), where `n` is the size of the input array. This is because the size of the array decreases linearly, and the sum operation is performed for each pair of elements in the array.
+
+# Space Complexity:
+- The algorithm uses O(n) additional space for the intermediate array `res`.
+
+# Edge Cases:
+1. If the array has only one element, the result is that element.
+2. If all elements in the array are the same, the result is the same as the first element.
+
+# Example:
+Input: nums = [1, 2, 3, 4, 5]  
+Output: 8  
+Explanation:  
+Step 1: [1, 2, 3, 4, 5] → [3, 5, 7, 9]  
+Step 2: [3, 5, 7, 9] → [8, 2, 6]  
+Step 3: [8, 2, 6] → [0, 8]  
+Step 4: [0, 8] → [8]  
+
+Input: nums = [5]  
+Output: 5  
+Explanation: The array has only one element, so the result is 5.
