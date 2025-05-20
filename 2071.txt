@@ -1,0 +1,38 @@
+# Problem Description:
+The code determines the maximum number of tasks that can be assigned to workers given the constraints:
+1. Each worker can complete at most one task.
+2. A worker can complete a task if their strength is greater than or equal to the task's difficulty.
+3. A worker can take a pill to temporarily increase their strength by `strength`.
+
+# Algorithm:
+1. Sort the `tasks` and `workers` arrays in ascending order.
+2. Use binary search to determine the maximum number of tasks (`mid`) that can be assigned:
+   - For each `mid`, use a deque to manage workers who can potentially complete the tasks.
+   - Iterate through the tasks from largest to smallest:
+     - Add workers who can complete the task with or without a pill to the deque.
+     - If no worker can complete the task, return `false`.
+     - Otherwise, assign the task to the most suitable worker (with or without a pill).
+3. Adjust the binary search range based on whether the current `mid` is feasible.
+4. Return the maximum feasible `mid`.
+
+# Time Complexity:
+- Sorting the `tasks` and `workers` arrays takes O(n log n + m log m), where `n` is the number of tasks and `m` is the number of workers.
+- The binary search runs in O(log(min(n, m))) iterations, and each iteration processes up to O(n + m) elements.
+- Overall complexity: O((n + m) log(n + m)).
+
+# Space Complexity:
+- The algorithm uses O(m) additional space for the deque.
+
+# Edge Cases:
+1. If there are no tasks or no workers, the result is `0`.
+2. If all tasks are easier than the weakest worker's strength, all tasks can be assigned.
+3. If all tasks are harder than the strongest worker's strength (even with a pill), no tasks can be assigned.
+
+# Example:
+Input: tasks = [3, 2, 1], workers = [0, 3, 3], pills = 1, strength = 1  
+Output: 3  
+Explanation: Assign tasks [1, 2, 3] to workers [3, 3, 0] with one pill.
+
+Input: tasks = [5, 4], workers = [0, 0, 0], pills = 2, strength = 5  
+Output: 2  
+Explanation: Use pills to assign both tasks.
