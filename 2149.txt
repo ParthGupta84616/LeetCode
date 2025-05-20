@@ -1,0 +1,29 @@
+# Problem Description:
+The code rearranges an array `nums` such that positive and negative numbers alternate, starting with a positive number. The relative order of positive and negative numbers is preserved.
+
+# Algorithm:
+1. Initialize an array `ans` of the same size as `nums` with all elements set to `0`.
+2. Use two pointers:
+   - `positive` to track the position for the next positive number (even indices).
+   - `negative` to track the position for the next negative number (odd indices).
+3. Iterate through the array:
+   - If the current number is positive, place it at the next available even index and increment `positive`.
+   - If the current number is negative, place it at the next available odd index and increment `negative`.
+4. Return the rearranged array `ans`.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(n) additional space for the `ans` array.
+
+# Edge Cases:
+1. An array with all positive or all negative numbers is invalid for this problem.
+2. An array with alternating positive and negative numbers remains unchanged.
+
+# Example:
+Input: nums = [3, 1, -2, -5, 2, -4]  
+Output: [3, -2, 1, -5, 2, -4]  
+
+Input: nums = [-1, 1]  
+Output: [1, -1]
