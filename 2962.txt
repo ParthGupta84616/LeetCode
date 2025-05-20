@@ -1,0 +1,29 @@
+# Problem Description:
+The code counts the number of subarrays in the array `nums` such that the `k`th occurrence of the maximum element in the subarray is included.
+
+# Algorithm:
+1. Find the maximum element in the array using `max_element`.
+2. Traverse the array and record the indices of occurrences of the maximum element in a vector `maxIndex`.
+3. For each index `i` in the array:
+   - If the current element is the maximum element, add its index to `maxIndex`.
+   - If the size of `maxIndex` is at least `k`, calculate the contribution of subarrays ending at the current index that include the `k`th occurrence of the maximum element.
+4. Return the total count of such subarrays.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because it iterates through the array once.
+
+# Space Complexity:
+- The algorithm uses O(n) additional space for the `maxIndex` vector.
+
+# Edge Cases:
+1. If the array has fewer than `k` occurrences of the maximum element, the result is `0`.
+2. If all elements in the array are the same, the result is the number of valid subarrays.
+
+# Example:
+Input: nums = [1, 3, 3, 3, 2], k = 2  
+Output: 6  
+Explanation: The valid subarrays are [3, 3], [3, 3, 3], [1, 3, 3], [3, 3, 2], [3, 3, 3, 2], and [1, 3, 3, 3].
+
+Input: nums = [5, 5, 5], k = 1  
+Output: 6  
+Explanation: All subarrays include the first occurrence of the maximum element.
