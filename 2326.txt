@@ -1,0 +1,31 @@
+# Problem Description:
+The code fills an `m x n` matrix in spiral order using the values from a given singly linked list. If the linked list has fewer elements than the matrix, the remaining cells are filled with `-1`.
+
+# Algorithm:
+1. Initialize four boundaries: `top`, `right`, `bottom`, and `left`.
+2. Use a pointer `current` to traverse the linked list.
+3. Use a while loop to fill the matrix in spiral order:
+   - Traverse from `left` to `right` along the `top` boundary and increment `top`.
+   - Traverse from `top` to `bottom` along the `right` boundary and decrement `right`.
+   - If `top <= bottom`, traverse from `right` to `left` along the `bottom` boundary and decrement `bottom`.
+   - If `left <= right`, traverse from `bottom` to `top` along the `left` boundary and increment `left`.
+4. For each cell, assign the value from the linked list if available; otherwise, assign `-1`.
+5. Return the filled matrix.
+
+# Time Complexity:
+- The algorithm runs in O(m * n), where `m` is the number of rows and `n` is the number of columns. This is because each cell is visited exactly once.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space, excluding the space required for the output matrix.
+
+# Edge Cases:
+1. If the linked list is empty, all cells in the matrix are filled with `-1`.
+2. If the matrix has only one row or one column, it is filled in a single pass.
+3. If the linked list has more elements than the matrix, the extra elements are ignored.
+
+# Example:
+Input: m = 3, n = 5, head = [3, 0, 2, 6, 8, 1, 7, 9, 4, 2]  
+Output: [[3, 0, 2, 6, 8], [2, -1, -1, -1, 1], [4, 9, 7, 1, 7]]  
+
+Input: m = 1, n = 4, head = [1, 2, 3]  
+Output: [[1, 2, 3, -1]]
