@@ -1,0 +1,30 @@
+# Problem Description:
+The code counts the number of subarrays in the array `nums` such that the product of the sum of the subarray and its length is less than `k`.
+
+# Algorithm:
+1. Use a sliding window approach with two pointers `i` and `j`:
+   - `j` expands the window by iterating through the array.
+   - Add `nums[j]` to `total`, which keeps track of the sum of the current window.
+   - While the product of `total` and the window size `(j - i + 1)` is greater than or equal to `k`, shrink the window by incrementing `i` and subtracting `nums[i]` from `total`.
+2. For each valid window, add the number of subarrays ending at `j` (`j - i + 1`) to the result `res`.
+3. Return `res`.
+
+# Time Complexity:
+- The algorithm runs in O(n), where `n` is the size of the array. This is because each element is processed at most twice (once when expanding the window and once when shrinking it).
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it only uses a few integer variables for computation.
+
+# Edge Cases:
+1. An empty array will return `0`.
+2. If all elements are greater than or equal to `k`, the result will be `0`.
+3. If `k` is very large, all subarrays may be valid.
+
+# Example:
+Input: nums = [2, 1, 4, 3], k = 10  
+Output: 6  
+Explanation: The valid subarrays are [2], [1], [4], [3], [2, 1], and [1, 4].
+
+Input: nums = [1, 2, 3], k = 5  
+Output: 4  
+Explanation: The valid subarrays are [1], [2], [3], and [1, 2].
