@@ -1,0 +1,28 @@
+# Problem Description:
+The code checks if a matrix `mat` can be rotated in 90-degree increments (up to 270 degrees) to match another matrix `target`.
+
+# Algorithm:
+1. Perform up to 4 rotations (0, 90, 180, 270 degrees):
+   - Check if `mat` matches `target`. If they match, return `true`.
+   - Transpose the matrix `mat` by swapping `mat[i][j]` with `mat[j][i]` for all `i < j`.
+   - Reverse each row of the transposed matrix to complete the 90-degree rotation.
+2. If no rotation results in a match, return `false`.
+
+# Time Complexity:
+- The algorithm runs in O(n^2), where `n` is the size of the matrix. This is because each rotation involves transposing and reversing the matrix, both of which are O(n^2) operations.
+
+# Space Complexity:
+- The algorithm uses O(1) additional space as it modifies the matrix `mat` in-place.
+
+# Edge Cases:
+1. If `mat` and `target` are already identical, the function returns `true` without performing any rotations.
+2. If `mat` and `target` are completely different, the function returns `false` after 4 rotations.
+
+# Example:
+Input: mat = [[0, 1], [1, 0]], target = [[1, 0], [0, 1]]  
+Output: true  
+Explanation: Rotate mat 90 degrees clockwise to match target.
+
+Input: mat = [[0, 1], [1, 1]], target = [[1, 0], [0, 1]]  
+Output: false  
+Explanation: No rotation of mat can match target.
